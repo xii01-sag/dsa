@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 struct student {
     char usn[20], name[30], prog[10], phno[15];
     int sem;
     struct student *next;
 };
 typedef struct student* NODE;
-
 NODE createNode() {
     NODE temp = (NODE)malloc(sizeof(struct student));
     if (!temp) {
@@ -28,13 +26,11 @@ NODE createNode() {
     temp->next = NULL;
     return temp;
 }
-
 NODE insertFront(NODE head) {
     NODE newnode = createNode();
     newnode->next = head;
     return newnode;
 }
-
 NODE insertEnd(NODE head) {
     NODE newnode = createNode();
     if (head == NULL) {
@@ -47,7 +43,6 @@ NODE insertEnd(NODE head) {
     temp->next = newnode;
     return head;
 }
-
 NODE deleteFront(NODE head) {
     if (head == NULL) {
         printf("\nList is empty!\n");
@@ -59,7 +54,6 @@ NODE deleteFront(NODE head) {
     free(temp);
     return head;
 }
-
 NODE deleteEnd(NODE head) {
     if (head == NULL) {
         printf("\nList is empty!\n");
@@ -80,7 +74,6 @@ NODE deleteEnd(NODE head) {
     prev->next = NULL;
     return head;
 }
-
 void display(NODE head) {
     if (head == NULL) {
         printf("\nList is empty!\n");
@@ -97,7 +90,6 @@ void display(NODE head) {
     }
     printf("\nTotal Nodes = %d\n", count);
 }
-
 int main() {
     NODE head = NULL;
     int choice, n, i;
